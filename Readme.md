@@ -18,9 +18,13 @@ for(p in pkgs){
 ```
 
 CSV files needed to run are:
-B550_Dat.csv contains all data for all participants
-Data_Dictionary.csv contains descriptions for all variables
-Medicare_segmentation_values.csv  contains definitions for values codes for the medicare segment
+
+B550_Dat.csv contains all data for all participants.
+
+Data_Dictionary.csv contains descriptions for all variables.
+
+Medicare_segmentation_values.csv  contains definitions for values codes for the medicare segment.
+
 
 Steps for running analysis
 1) Install necessary r packages using commands above
