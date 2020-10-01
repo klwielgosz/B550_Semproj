@@ -1,0 +1,88 @@
+---
+title: "INFO550_Semproj_HW5"
+author: "Patrick Zhang"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output: html_document
+---
+
+HW Question 2:
+<!--
+Change default settings for all code chunks
+-->
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE, warning = FALSE, message=FALSE,error=FALSE, fig.width = 6, fig.height = 6
+)
+```
+
+This is the rmarkdown code for Patrick Zhang's semester project in INFO 550.  The primary goal is to determine how medicare beneficiaries that are at risk for having transportation issues differ from those that don't.  At this point, the investigators would like a summary table to compare similarities between groups.
+
+```{r}
+### IMPORTANT: Set local working directory, use github in future
+setwd("C:/Users/patri/OneDrive/Desktop/Emory_2/2020_Fall/INFO_550/Semester_Project/Data")
+library(dplyr)
+library(tidyselect)
+library(tidyverse)
+library(ggplot2)
+library(stringr)
+library(furniture)
+library(knitr)
+library(readr)
+
+# ------------------- Import Data ----------------------- #
+dat <-read_csv("B550_Dat.csv") %>%
+  mutate(transportation_issues = as.factor(transportation_issues))
+var_def <- read_csv("Data_Dictionary.csv")
+
+# Variable Definitions
+var_def_b <- var_def %>%
+  filter(Variable %in% names(dat))
+
+```
+
+```{r}
+# Count number of rows (denominator) and subset important groups into separate dataframes
+n_allrows <- nrow(dat)
+dat_tpyes <- dat[dat$transportation_issues==1,]
+dat_tpno <- dat[dat$transportation_issues==0,]
+n_tpyes <- nrow(dat_tpyes)
+n_tpno <- nrow(dat_tpno)
+
+### Test proportions of variables
+# Sex
+sex.eqtest <- prop.test(x = c(nrow(dat[(dat$sex_cd=="M" & dat$transportation_issues==1),]),
+                       nrow(dat[(dat$sex_cd!="M" & dat$transportation_issues==1),])),
+                      n = c(nrow(dat[dat$sex_cd=="M",]), nrow(dat[dat$sex_cd!="M",])))
+```
+
+Below is a summary table of demographics within this datset
+
+```{r}
+### Make a table with several variables, test if they are equal
+Pred_vars <- str_c(names(dat), collapse = ", ")
+
+demo_table1_raw <- table1(dat,
+                      est_age, src_platform_cd, sex_cd, lang_spoken_cd, mabh_seg, cons_cmys, cons_hcaccprf_h, cons_hcaccprf_p, cons_hhcomp, cons_homstat, rucc_category, state_cd
+                      ,splitby = ~transportation_issues
+                      ,row_wise = T,
+                      na.rm=F,
+                      test = TRUE,
+                      type="full")
+
+demo_table1 <- as.data.frame(demo_table1_raw)
+demo_table2 <- demo_table1 %>%
+  rename(Characteristic = ".", "No Transport Issues" = "0" ,"Transport Issues" = "1" )
+
+kable(demo_table1)
+
+```
+
+
+The location of data used in this analysis can be found at repo: "`r getwd()`".  
+
+Additional devtools information is below.
+
+```{r}
+devtools::session_info()
+```
