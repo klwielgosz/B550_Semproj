@@ -74,9 +74,19 @@ demo_table1 <- as.data.frame(demo_table1_raw)
 demo_table2 <- demo_table1 %>%
   rename(Characteristic = ".", "No Loneliness Issues" = "0" ,"Loneliness Issues" = "1" )
 
-kable(demo_table1)
+kable(demo_table2)
 
 ```
+
+Distribution of age between key variables seemed be somewhat constant except for state.  Below are density histograms of age by some key varaiables.
+
+```{r, figure-2}
+knitr::include_graphics("../figs/fig1.png")
+knitr::include_graphics("../figs/fig2.png")
+knitr::include_graphics("../figs/fig3.png")
+```
+
+
 Additional devtools information is below.
 
 ```{r}

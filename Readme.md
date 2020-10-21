@@ -2,20 +2,10 @@
 
 This is the repo for INFO 550.  All data has been scrambled and some variables are randomly generated.
 
-To run, you will need rmarkdown, as well as the following packages.
+To run, you will need rmarkdown, as well as the following packages:
 dplyr, tidyselect, tidyverse, ggplot2, stringr, furniture, knitr, readr
 
-You can install the packages using the command below in `R`.
-
-``` r
-installed_pkgs <- row.names(installed.packages())
-pkgs <- c("dplyr", "tidyselect", "tidyverse", "ggplot2", "stringr", "furniture", "knitr", "readr")
-for(p in pkgs){
-	if(!(p %in% install_pkgs)){
-		install.packages(p)
-	}
-}
-```
+Program to install packages is included.
 
 CSV files needed to run are:
 
@@ -25,13 +15,28 @@ Data_Dictionary.csv contains descriptions for all variables.
 
 Medicare_segmentation_values.csv  contains definitions for values codes for the medicare segment.
 
-
-Steps for running analysis
-1) Install necessary r packages using commands above
-2) After packages are installed, you can execute the analysis from the rpoject folder by running
-
+## Directions
+Two methods to obtain report:
+1) One command autorun program.  Within project directory, run:
 ``` bash
-Rscript -e "rmarkdown::render('INFO550_Semproj_rcode.Rmd')"
+bash Autorun.sh
 ```
 
-The output should be called INFO550_Semproj_rcode.html.
+OR 
+2) Steps for running analysis manually:
+	2a) Within project directory, run:
+	``` bash
+	bash make install
+	```
+		- This installs required R packages
+	2b) After packages are installed, you can create the charts and run the report by running:
+	``` bash
+	bash make
+	```
+
+The output will be named "report_out.rmd" and will be located in the parent directory.
+
+## Troubleshooting WSL vs Mac
+If you are running WSL with r installed locally, this section does not apply. If you are running r on a mac or through homebrew on WSL, you will need to replace "Rscript.exe" with "Rscript" in the following files:
+- Makefile
+- R\Install_R_Pckg.sh

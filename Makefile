@@ -1,24 +1,28 @@
-# rule for making report  
-# report.html: data.txt report.Rmd fig1.png
-#	Rscript -e "rmarkdown::render('report.Rmd', quiet = TRUE)"
-
-# rule for cleaning data
-#data.txt: cleandata.R raw_data.txt
-#	chmod +x cleandata.R && \
-#	Rscript cleandata.R
-
-# rule for making the figure
-#fig1.png: make_fig1.R data.txt
-#	chmod +x make_fig1.R && \
-#	Rscript make_fig1.R
-
-install:R/Install_R_Pckg.sh
+## report_out.html : Generate final analysis report.
+report_out.html: figs/fig1.png figs/fig2.png figs/fig3.png R/INFO550_Semproj_rcode.Rmd
+	Rscript.exe -e "rmarkdown::render('R/INFO550_Semproj_rcode.Rmd', output_file = '../report_out.html')"
+	
+## install     : Install R packages needed to run this program.
+install: R/Install_R_Pckg.sh
 	chmod +x R/Install_R_Pckg.sh && \
 	Rscript.exe R/Install_R_Pckg.sh
+	
+## fig1.png    : Make age density by RUCC_Category.
+figs/fig1.png: R/make_fig1.R
+	chmod +x R/make_fig1.R && \
+	Rscript.exe R/make_fig1.R
 
-# Document echo help text
+## fig2.png    : Make age density by Loneliness Issues.
+figs/fig2.png: R/make_fig2.R
+	chmod +x R/make_fig2.R && \
+	Rscript.exe R/make_fig2.R
+
+## fig3.png    : Make age density by State.
+figs/fig3.png: R/make_fig3.R
+	chmod +x R/make_fig3.R && \
+	Rscript.exe R/make_fig3.R
+
+
 .PHONY: help
-help:
-    # @echo "report.html : Generate final analysis report."
-    # @echo "fig1.png    : Make a histogram of X."
-    @echo "install       : Install R packages needed to run this program."
+help: Makefile
+	@sed -n 's/^##//p' $<

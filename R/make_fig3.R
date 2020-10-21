@@ -22,16 +22,16 @@ dat <-read_csv(git_dat) %>%
 
 # ------------------- Make figure 1 ----------------------- #
 # Plot age density by RUCC category
-png("figs/fig1.png")
+png("figs/fig3.png")
 
 # Change density plot line colors by groups
-ggplot(dat, aes(x=est_age, color=rucc_category)) +
+ggplot(dat, aes(x=est_age, color=state_cd)) +
   geom_density()
 # Add mean lines
-p <-ggplot(dat, aes(x=est_age, color=rucc_category)) +
+p <-ggplot(dat, aes(x=est_age, color=state_cd)) +
   geom_density() +
   
-  labs(title="Age Density by RUCC Category",x="Age(yrs)", y = "Density")
+  labs(title="Age Density by State",x="Age(yrs", y = "Density")
 p
 
 dev.off()
