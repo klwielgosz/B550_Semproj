@@ -7,6 +7,7 @@ dplyr, tidyselect, tidyverse, ggplot2, stringr, furniture, knitr, readr
 
 Program to install packages is included.
 
+## Data/Variable Overview
 CSV files needed to run are:
 
 B550_Dat.csv contains all data for all participants.
@@ -14,6 +15,13 @@ B550_Dat.csv contains all data for all participants.
 Data_Dictionary.csv contains descriptions for all variables.
 
 Medicare_segmentation_values.csv  contains definitions for values codes for the medicare segment.
+
+## Makefile Overview
+Makefile creates various parts for final report.  For detailed information, run the following within the project directory:
+
+``` bash
+make help
+```
 
 ## Directions
 Two methods to obtain report:

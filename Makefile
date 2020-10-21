@@ -1,5 +1,5 @@
-## report_out.html : Generate final analysis report.
-report_out.html: figs/fig1.png figs/fig2.png figs/fig3.png R/INFO550_Semproj_rcode.Rmd
+## report      : Generate final analysis report.
+report: figs/fig1.png figs/fig2.png figs/fig3.png R/INFO550_Semproj_rcode.Rmd
 	Rscript.exe -e "rmarkdown::render('R/INFO550_Semproj_rcode.Rmd', output_file = '../report_out.html')"
 	
 ## install     : Install R packages needed to run this program.
