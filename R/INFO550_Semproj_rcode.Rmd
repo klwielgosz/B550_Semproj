@@ -16,9 +16,9 @@ This is the rmarkdown code for Patrick Zhang's semester project in INFO 550.  Th
 
 ```{r}
 ### IMPORTANT: Set directory for data on github
-git_dat <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/Data/B550_Dat.csv"
-git_dict <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/Data/Data_Dictionary.csv"
-git_medicare <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/Data/Medicare_segmentation_values.csv"
+git_dat <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/raw_data/INFO550_Semproj_dat.csv"
+git_dict <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/raw_data/Data_Dictionary.csv"
+git_medicare <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/raw_data/Medicare_segmentation_values.csv"
 
 ### Packages
 library(dplyr)

@@ -1,4 +1,4 @@
-id,transportation_issues,est_age,sex_cd,lang_spoken_cd,mabh_seg,cons_cmys,cons_hcaccprf_h,cons_hcaccprf_p,cons_hhcomp,cons_homstat,rucc_category,state_cd
+id,loneliness_issues,est_age,sex_cd,lang_spoken_cd,mabh_seg,cons_cmys,cons_hcaccprf_h,cons_hcaccprf_p,cons_hhcomp,cons_homstat,rucc_category,state_cd
 33562,0,68,F,SPA,UNK,NA,0,1,B,R,1-Metro,other
 27688,0,86,M,ENG,H6,4,0,1,J,NA,1-Metro,other
 25875,0,65,F,ENG,C2,4,0,1,NA,Y,6-Nonmetro,TN
