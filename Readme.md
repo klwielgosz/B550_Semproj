@@ -17,22 +17,27 @@ Medicare_segmentation_values.csv  contains definitions for values codes for the 
 
 ## Directions
 Two methods to obtain report:
-1) One command autorun program.  Within project directory, run:
+1) *Recommended* One command autorun program.  Within project directory, run:
 ``` bash
 bash Autorun.sh
 ```
 
-OR 
+OR: 
+
 2) Steps for running analysis manually:
+
 	2a) Within project directory, run:
-	``` bash
-	bash make install
-	```
-		- This installs required R packages
+
+``` bash
+bash make install
+```
+	- This installs required R packages
+	
 	2b) After packages are installed, you can create the charts and run the report by running:
-	``` bash
-	bash make
-	```
+	
+``` bash
+bash make
+```
 
 The output will be named "report_out.rmd" and will be located in the parent directory.
 
