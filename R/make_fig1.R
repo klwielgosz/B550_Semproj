@@ -19,9 +19,9 @@
 
 
 ### IMPORTANT: Set directory for data on github
-git_dat <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/Data/B550_Dat.csv"
-git_dict <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/Data/Data_Dictionary.csv"
-git_medicare <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/Data/Medicare_segmentation_values.csv"
+git_dat <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/raw_data/B550_Dat.csv"
+git_dict <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/raw_data/Data_Dictionary.csv"
+git_medicare <- "https://raw.githubusercontent.com/pzhan56/B550_Semproj/master/raw_data/Medicare_segmentation_values.csv"
 
 ### Packages
 library(dplyr)
