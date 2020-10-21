@@ -4,4 +4,4 @@
 
 make install
 
-make
+make report
