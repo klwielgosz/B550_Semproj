@@ -44,7 +44,7 @@ bash make install
 2b) After packages are installed, you can create the charts and run the report by running:
 	
 ``` bash
-bash make
+bash make report
 ```
 
 The output will be named "report_out.rmd" and will be located in the parent directory.
