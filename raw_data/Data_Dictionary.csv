@@ -1,0 +1,8 @@
+id,Unique ID
+Loneliness_issues,1 = Yes - 0 = No
+est_age, Member age calculated using est_bday - relative to score/index date
+sex_cd, Member gender
+lang_spoken_cd, Preferred Language for Member
+mabh_seg,Medicare Segmentation
+rucc_category, Member geographic information - Rural Urban Continuum Code
+state_cd, Member geographic information - Postal Abbreviation
