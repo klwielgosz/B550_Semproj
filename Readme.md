@@ -30,7 +30,7 @@ make help
 docker pull pz032284/pz1
 ```
 
-2) Clone github repo, and set as project directory as current directory
+2) Clone github repo to local device, and set as project directory as current directory
 ``` bash
 git clone https://github.com/pzhan56/B550_Semproj
 cd B550_Semproj
@@ -41,9 +41,12 @@ cd B550_Semproj
 make build
 ```
 
-4) Run report using Docker image.
+4) Run report using Docker OR Makefile
 ``` bash
+## Run with makefile
 make report_docker
+## Run with docker
+docker run -it --mount src=`pwd`,target=/project/,type=bind pz032284/pz1
 ```
 
 5) The output will be named "report_out.html" and will be located in the folder ./output.
