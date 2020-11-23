@@ -82,8 +82,8 @@ Distribution of age between key variables seemed be somewhat constant except for
 
 ```{r, figure-2}
 knitr::include_graphics("../figs/fig1.png")
-knitr::include_graphics("../figs/fig2.png")
-knitr::include_graphics("../figs/fig3.png")
+#knitr::include_graphics("../figs/fig2.png")
+#knitr::include_graphics("../figs/fig3.png")
 ```
 
 

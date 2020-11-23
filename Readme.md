@@ -23,33 +23,27 @@ Makefile creates various parts for final report.  For detailed information, run 
 make help
 ```
 
-## Directions
-Two methods to obtain report:
+## Steps for Obtaining Report Output using Docker
 
-1) One command autorun program.  Within project directory, run:
+1) Pull Docker Image
 ``` bash
-bash Autorun.sh
+docker pull pz032284/pz1
 ```
 
-OR: 
-
-2) Steps for running analysis manually:
-
-2a) Within project directory, install required R packages by running:
-
+2) Clone github repo, and set as project directory as current directory
 ``` bash
-bash make install
-```
-	
-2b) After packages are installed, you can create the charts and run the report by running:
-	
-``` bash
-bash make report
+git clone https://github.com/pzhan56/B550_Semproj
+cd B550_Semproj
 ```
 
-The output will be named "report_out.rmd" and will be located in the parent directory.
+3) Build Docker image using Makefile
+``` bash
+make build
+```
 
-## Troubleshooting WSL vs Mac
-If you are running WSL with r installed locally, this section does not apply. If you are running r on a mac or through homebrew on WSL, you will need to replace "Rscript.exe" with "Rscript" in the following files:
-- Makefile
-- R\Install_R_Pckg.sh
+4) Run report using Docker image.
+``` bash
+make report_docker
+```
+
+5) The output will be named "report_out.html" and will be located in the folder ./output.

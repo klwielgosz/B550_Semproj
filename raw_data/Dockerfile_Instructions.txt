@@ -1,0 +1,42 @@
+## Dockerfile_instructions
+### 1) Start build process by setting wd
+# cd /mnt/c/users/patri/OneDrive/Desktop/Emory_2/2020_Fall/INFO_550/Semester_Project
+
+### 2) then run this program with image name "pz1"
+# docker build -t pz1 .
+
+### 3) Run dockerfile with local mount
+
+# docker run -v /mnt/c/users/patri/OneDrive/Desktop/Emory_2/2020_Fall/INFO_550/Semester_Project/:/project/ -it pz1
+
+### 4) All together 
+cd /mnt/c/users/patri/OneDrive/Desktop/Emory_2/2020_Fall/INFO_550/Semester_Project
+make build
+make report_docker
+
+#### 5) push to dockerhub
+docker build -t pz032284/pz1 .
+docker push pz032284/pz1
+
+
+######## Docker commands #########
+### Kill containers using 
+# docker container kill [**INSERT CONTAINER ID HERE**]
+# docker container kill [**INSERT CONTAINER ID HERE**]
+### remove images using 
+# docker image rm [**INSERT CONTAINER ID HERE**]
+
+docker ps -a                # Lists containers (and tells you which images they are spun from)
+
+docker images               # Lists images 
+
+docker rm <container_id>    # Removes a stopped container
+
+docker rm -f <container_id> # Forces the removal of a running container (uses SIGKILL)
+
+docker rmi <image_id>       # Removes an image 
+                            # Will fail if there is a running instance of that image i.e. container
+
+docker rmi -f <image_id>    # Forces removal of image even if it is referenced in multiple repositories, 
+                            # i.e. same image id given multiple names/tags 
+                            # Will still fail if there is a docker container referencing image
